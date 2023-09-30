@@ -39,6 +39,12 @@ if st.button("Generate Summary"):
                 text = extract_text_pypdf(BytesIO(pdf_content))
                 st.subheader("Summary:")
                 st.write(text)  # Display the extracted text
+                
+                # Calculate and display the length of the PDF and summary
+                st.subheader("Length of PDF:")
+                st.write(len(pdf_content))
+                st.subheader("Length of Summary:")
+                st.write(len(text))
             else:
                 # Extract text using Nougat
                 pdf_base64 = base64.b64encode(pdf_content).decode("utf-8")
@@ -46,6 +52,12 @@ if st.button("Generate Summary"):
                 summary = summarize_text_nougat(text)
                 st.subheader("Summary:")
                 st.write(summary)
+
+                # Calculate and display the length of the PDF and summary
+                st.subheader("Length of the uploaded PDF:")
+                st.write(len(pdf_content))
+                st.subheader("Length of the generated Summary:")
+                st.write(len(summary))
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
