@@ -2,6 +2,8 @@
 
 python -m venv .streamlit
 
+pip install requirements.txt
+
 pip install pypdf
-pip install nougat
+
 pip install requests

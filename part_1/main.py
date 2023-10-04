@@ -1,5 +1,6 @@
 import streamlit as st
 import subprocess
+import time
 import requests
 from io import BytesIO
 from PyPDF2 import PdfReader
@@ -43,6 +44,22 @@ if pdf_library == "Nougat":
 if pdf_library != "Nougat":
     if st.button("Generate Summary"):
         if pdf_link:
+            # Create an empty text element for progress updates
+            progress_text = st.empty()
+
+            # Simulate progress and update the progress text
+            for percent_complete in range(101):
+                progress_text.text(f"Generating summary progress {percent_complete}% complete.")
+                if percent_complete == 100:
+                    time.sleep(2)  # Wait for 2 seconds at 100% progress
+                time.sleep(0.1)  # Simulate processing time
+
+            # Display a loading message while generating the report
+            progress_message = st.info("Generating the summary. Please wait...")
+
+            # Remove the "Pandas Profiling Report is 100% complete." message
+            progress_text.empty()
+
             try:
                 # Download the PDF file
                 response = requests.get(pdf_link)
@@ -51,6 +68,7 @@ if pdf_library != "Nougat":
                 if pdf_library == "PyPDF2":
                     # Extract text using PyPDF2
                     text = extract_text_pypdf(BytesIO(pdf_content))
+                    progress_message.empty()
                     st.subheader("Summary:")
                     st.write(text)  # Display the extracted text
                     
