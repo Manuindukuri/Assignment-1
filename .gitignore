@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 part_1/streamlit/.streamlit
+part_2/streamlit/.streamlit
