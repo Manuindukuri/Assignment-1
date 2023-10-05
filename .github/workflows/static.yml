@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: '/Users/prathamesh/Documents/GitHub/Assignment-1/part_2/gx/uncommitted/data_docs/local_site'
+          path: 'part_2/gx/uncommitted/data_docs/local_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
