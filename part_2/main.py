@@ -95,4 +95,4 @@ if uploaded_file is not None:
 
 # Add a footer
 st.markdown("---")
-st.write("Created by Your Huskies 🐾")
+st.write("Created by Huskies 🐾")
