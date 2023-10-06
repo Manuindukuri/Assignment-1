@@ -134,14 +134,13 @@ The workflow for our Data Quality Evaluation Tool for the Freddie Mac Single-Fam
    └─ temp
       └─ origination_data_profile_report.html
 
+
 ## Link to the Live Applications
 
-```
 - Streamlit Application (Part 1): https://bigdataia-fall2023-team-1-assignment-1-part-1main-c4hiku.streamlit.app
 - Streamlit Application (Part 2): https://bigdataia-fall2023-team-1-assignment-1-part-2app-wuoldk.streamlit.app
-```
+
 ## Link to Codelab
-```
+
 - Part 1 : https://codelabs-preview.appspot.com/?file_id=1bWkZdGurOufpXn0ausMuI0dNQvnJ_OxzVsDwUWmHMqU#0
 - Part 2 : https://codelabs-preview.appspot.com/?file_id=1unCqMpXiX_hpSKtdzLZ9OyGHscLuEF-JqEr6hojCUCQ#0
-```
