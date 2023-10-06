@@ -73,3 +73,4 @@ watchdog==3.0.0
 weasel==0.3.2
 zipp==3.17.0
 ydata-profiling==4.5.1
+visions==0.7.4
