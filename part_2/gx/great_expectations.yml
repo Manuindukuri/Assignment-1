@@ -97,8 +97,6 @@ anonymous_usage_statistics:
   data_context_id: d600f941-c804-42e3-9124-a702208a7fa7
   enabled: true
 fluent_datasources:
-  default_pandas_datasource:
-    type: pandas
   File:
     type: pandas
     assets:
