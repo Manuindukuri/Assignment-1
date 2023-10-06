@@ -1,12 +1,21 @@
-# Assignment-1
 
-Hello world!
+# Assignment-1
 
 python -m venv .streamlit
 
-pip install requirements.txt
+(Prefer Vscode for better experience)
 
-pip install pypdf
+Create a streamlit folder inside the folders part_1 & part_2 to connect with streamlit and run following commands in terminal:
 
-pip install requests
+$ python -m venv .streamlit
+
+$ pip install streamlit
+
+$ source .streamlit/bin/activate
+
+$ pip install requirements.txt
+
+$ pip install pypdf
+
+$ pip install requests
 
