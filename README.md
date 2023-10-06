@@ -1,6 +1,7 @@
 
-
 # Assignment-1
+
+python -m venv .streamlit
 
 (Prefer Vscode for better experience)
 
@@ -17,3 +18,4 @@ $ pip install requirements.txt
 $ pip install pypdf
 
 $ pip install requests
+
