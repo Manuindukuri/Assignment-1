@@ -8,6 +8,26 @@ import base64
 # Set Streamlit app title
 st.title('Pandas Profiling App')
 
+def run_colab_notebook_origination():
+    # Replace 'YOUR_COLAB_NOTEBOOK_URL' with the actual Colab notebook URL
+    colab_notebook_url = 'https://colab.research.google.com/drive/1RfLX5bc-ilPhwFGjqGH5Mf584CE1SG_i#scrollTo=n7DyaLoXNUTY'
+
+    link_text = "Click here to view great expectations for origination data"
+
+    # Create a hyperlink using Markdown
+    st.markdown(f"[{link_text}]({colab_notebook_url})")
+
+def run_colab_notebook_monthly():
+    # Replace 'YOUR_COLAB_NOTEBOOK_URL' with the actual Colab notebook URL
+    colab_notebook_url = 'https://colab.research.google.com/drive/1p4PT3s-5Lpsf6eFsTkKodBfJe6UPGsIe'
+
+    link_text = "Click here to view great expectations for monthly performance data"
+
+    # Create a hyperlink using Markdown
+    st.markdown(f"[{link_text}]({colab_notebook_url})")
+
+
+
 # Upload a file
 uploaded_file = st.file_uploader("Upload a CSV or XLS file", type=["csv", "xls", "xlsx"])
 
@@ -29,8 +49,9 @@ if uploaded_file is not None:
     # Dropdown for Pandas Profiling options
     profiling_option = st.selectbox("Choose an option:", ["Origination Data", "Monthly Performance Data"])
 
-    if st.button("Generate Report"):  # Add a button to start report generation
+    if st.button("Generate Pandas Profiling"):  # Add a button to start report generation
         if profiling_option == "Origination Data":
+            run_colab_notebook_origination()
             # Create an empty text element for progress updates
             progress_text = st.empty()
 
@@ -61,6 +82,7 @@ if uploaded_file is not None:
             st.markdown(f'<iframe src="data:text/html;base64,{base64.b64encode(open(report_path, "rb").read()).decode()}" height="1000" width="100%"></iframe>', unsafe_allow_html=True)
             st.write("Pandas Profiling Report is complete.")
         elif profiling_option == "Monthly Performance Data":
+            run_colab_notebook_monthly()
             # Create an empty text element for progress updates
             progress_text = st.empty()
 
