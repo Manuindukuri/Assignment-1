@@ -1,8 +1,9 @@
 import streamlit as st
+import subprocess
+import time
 import requests
 from io import BytesIO
 from PyPDF2 import PdfReader
-import nougat
 import base64
 
 # Function to extract text from a PDF using PyPDF2
@@ -13,52 +14,72 @@ def extract_text_pypdf(pdf_file):
         text += page.extract_text()
     return text
 
-# Function to summarize text using Nougat
-def summarize_text_nougat(text):
-    summarizer = nougat.Nougat()
-    summary = summarizer.summarize(text)
-    return summary
+def run_colab_notebook():
+    # Replace 'YOUR_COLAB_NOTEBOOK_URL' with the actual Colab notebook URL
+    colab_notebook_url = 'https://colab.research.google.com/drive/1m6HVtjNsZv_ru3n7ykfRDCmd73zhYAdA#scrollTo=JLXCdVCNULDm'
 
-# User input for the PDF link
-pdf_link = st.text_input("Enter the link to the PDF file:")
+    # Prepare a shell command to open the Colab notebook with parameters
+    cmd = f"open -a 'Google Chrome' '{colab_notebook_url}'"
 
-# User selection for the PDF processing library
-pdf_library = st.radio("Select PDF processing library:", ("PyPDF2", "Nougat"))
+    # Execute the shell command to open the notebook
+    subprocess.Popen(cmd, shell=True)
 
-if st.button("Generate Summary"):
-    if pdf_link:
-        try:
-            # Download the PDF file
-            response = requests.get(pdf_link)
-            pdf_content = response.content
+st.title("PDF Analysis")
 
-            if pdf_library == "PyPDF2":
-                # Extract text using PyPDF2
-                text = extract_text_pypdf(BytesIO(pdf_content))
-                st.subheader("Summary:")
-                st.write(text)  # Display the extracted text
-                
-                # Calculate and display the length of the PDF and summary
-                st.subheader("Length of PDF:")
-                st.write(len(pdf_content))
-                st.subheader("Length of Summary:")
-                st.write(len(text))
-            else:
-                # Extract text using Nougat
-                pdf_base64 = base64.b64encode(pdf_content).decode("utf-8")
-                text = pdf_base64
-                summary = summarize_text_nougat(text)
-                st.subheader("Summary:")
-                st.write(summary)
+# Add a radio button to select the PDF processing library
+pdf_library = st.radio("Select PDF processing library:", ["PyPDF2", "Nougat"])
 
-                # Calculate and display the length of the PDF and summary
-                st.subheader("Length of the uploaded PDF:")
-                st.write(len(pdf_content))
-                st.subheader("Length of the generated Summary:")
-                st.write(len(summary))
+# If "Nougat" is selected, hide the text box
+if pdf_library == "Nougat":
+    st.write("Nougat library selected. No need to enter a link here instead please press the button below")
+else:
+    # If "PyPDF2" or any other option is selected, show the text box
+    pdf_link = st.text_input("Enter the link to the PDF file:")
 
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
+if pdf_library == "Nougat":
+    if st.button("Run Colab Notebook"):
+        run_colab_notebook()
+        st.success("Colab notebook execution triggered successfully.")
 
-    else:
-        st.warning("Please enter a valid PDF link.")
+if pdf_library != "Nougat":
+    if st.button("Generate Summary"):
+        if pdf_link:
+            # Create an empty text element for progress updates
+            progress_text = st.empty()
+
+            # Simulate progress and update the progress text
+            for percent_complete in range(101):
+                progress_text.text(f"Generating summary progress {percent_complete}% complete.")
+                if percent_complete == 100:
+                    time.sleep(2)  # Wait for 2 seconds at 100% progress
+                time.sleep(0.1)  # Simulate processing time
+
+            # Display a loading message while generating the report
+            progress_message = st.info("Generating the summary. Please wait...")
+
+            # Remove the "Pandas Profiling Report is 100% complete." message
+            progress_text.empty()
+
+            try:
+                # Download the PDF file
+                response = requests.get(pdf_link)
+                pdf_content = response.content
+
+                if pdf_library == "PyPDF2":
+                    # Extract text using PyPDF2
+                    text = extract_text_pypdf(BytesIO(pdf_content))
+                    progress_message.empty()
+                    st.subheader("Summary:")
+                    st.write(text)  # Display the extracted text
+                    
+                    # Calculate and display the length of the PDF and summary
+                    st.subheader("Length of PDF:")
+                    st.write(len(pdf_content))
+                    st.subheader("Length of Summary:")
+                    st.write(len(text))
+
+            except Exception as e:
+                st.error(f"An error occurred: {e}")
+
+        else:
+            st.warning("Please enter a valid PDF link.")
