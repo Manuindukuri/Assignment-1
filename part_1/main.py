@@ -18,16 +18,23 @@ def run_colab_notebook():
     # Replace 'YOUR_COLAB_NOTEBOOK_URL' with the actual Colab notebook URL
     colab_notebook_url = 'https://colab.research.google.com/drive/1m6HVtjNsZv_ru3n7ykfRDCmd73zhYAdA#scrollTo=JLXCdVCNULDm'
 
-    # Prepare a shell command to open the Colab notebook with parameters
-    cmd = f"open -a 'Google Chrome' '{colab_notebook_url}'"
+    link_text = "Click here to open the link in Google Colab"
 
-    # Execute the shell command to open the notebook
-    subprocess.Popen(cmd, shell=True)
+    # Create a hyperlink using Markdown
+    st.markdown(f"[{link_text}]({colab_notebook_url})")
 
 st.title("PDF Analysis")
 
 # Add a radio button to select the PDF processing library
 pdf_library = st.radio("Select PDF processing library:", ["PyPDF2", "Nougat"])
+
+# Define the image path
+image_path = 'https://github.com/BigDataIA-Fall2023-Team-1/Assignment-1/blob/main/part_1/workflow_diagram.png'
+
+# Create a button to trigger image display
+if st.button('View Architecture'):
+    # Display the image when the button is clicked
+    st.image(image_path, caption='Your Architecture', use_column_width=True)
 
 # If "Nougat" is selected, hide the text box
 if pdf_library == "Nougat":
