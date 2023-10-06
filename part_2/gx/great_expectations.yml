@@ -103,6 +103,14 @@ fluent_datasources:
       Asset:
         type: csv
         filepath_or_buffer: /Users/prathamesh/Documents/GitHub/Assignment-1/part_2/output.csv
+  default_pandas_datasource:
+    type: pandas
+  Monthly:
+    type: pandas
+    assets:
+      Asset1:
+        type: csv
+        filepath_or_buffer: /Users/prathamesh/Documents/GitHub/Assignment-1/part_2/output3.csv
 notebooks:
 include_rendered_content:
   globally: false
