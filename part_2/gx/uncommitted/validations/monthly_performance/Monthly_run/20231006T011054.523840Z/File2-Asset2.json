@@ -1,0 +1,161 @@
+{
+  "evaluation_parameters": {},
+  "meta": {
+    "active_batch_definition": {
+      "batch_identifiers": {},
+      "data_asset_name": "Asset2",
+      "data_connector_name": "fluent",
+      "datasource_name": "File2"
+    },
+    "batch_markers": {
+      "ge_load_time": "20231006T011054.529529Z",
+      "pandas_data_fingerprint": "d63dcb8e87295d2beba7775e77b7d5aa"
+    },
+    "batch_spec": {
+      "reader_method": "read_csv",
+      "reader_options": {
+        "filepath_or_buffer": "/Users/prathamesh/Documents/GitHub/Assignment-1/part_2/output3.csv"
+      }
+    },
+    "checkpoint_id": null,
+    "checkpoint_name": "Monthly_Checkpoint",
+    "expectation_suite_name": "monthly_performance",
+    "great_expectations_version": "0.17.19",
+    "run_id": {
+      "run_name": "Monthly_run",
+      "run_time": "2023-10-05T21:10:54.523840-04:00"
+    },
+    "validation_id": null,
+    "validation_time": "20231006T011055.079734Z"
+  },
+  "results": [
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_match_regex",
+        "kwargs": {
+          "batch_id": "File2-Asset2",
+          "column": "Loan_Sequence_Number",
+          "regex": "^[a-zA-Z0-9]{1,12}$"
+        },
+        "meta": {}
+      },
+      "meta": {},
+      "result": {
+        "element_count": 419440,
+        "missing_count": 0,
+        "missing_percent": 0.0,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0,
+        "unexpected_percent_nonmissing": 0.0,
+        "unexpected_percent_total": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_median_to_be_between",
+        "kwargs": {
+          "batch_id": "File2-Asset2",
+          "column": "Monthly_Reporting_Period",
+          "max_value": 202312,
+          "min_value": 202201
+        },
+        "meta": {}
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 202211.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_values_to_not_be_null",
+        "kwargs": {
+          "batch_id": "File2-Asset2",
+          "column": "Loan_Age"
+        },
+        "meta": {}
+      },
+      "meta": {},
+      "result": {
+        "element_count": 419440,
+        "partial_unexpected_counts": [],
+        "partial_unexpected_index_list": [],
+        "partial_unexpected_list": [],
+        "unexpected_count": 0,
+        "unexpected_percent": 0.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_median_to_be_between",
+        "kwargs": {
+          "batch_id": "File2-Asset2",
+          "column": "Estimated_Loan_to_Value(ELTV)",
+          "max": "1000",
+          "min": "1"
+        },
+        "meta": {}
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 77.0
+      },
+      "success": true
+    },
+    {
+      "exception_info": {
+        "exception_message": null,
+        "exception_traceback": null,
+        "raised_exception": false
+      },
+      "expectation_config": {
+        "expectation_type": "expect_column_median_to_be_between",
+        "kwargs": {
+          "batch_id": "File2-Asset2",
+          "column": "Current_Interest_Rate",
+          "max": "4",
+          "min": "1"
+        },
+        "meta": {}
+      },
+      "meta": {},
+      "result": {
+        "observed_value": 4.625
+      },
+      "success": true
+    }
+  ],
+  "statistics": {
+    "evaluated_expectations": 5,
+    "success_percent": 100.0,
+    "successful_expectations": 5,
+    "unsuccessful_expectations": 0
+  },
+  "success": true
+}
