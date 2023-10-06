@@ -121,8 +121,18 @@ fluent_datasources:
       Asset1:
         type: csv
         filepath_or_buffer: /Users/prathamesh/Documents/GitHub/Assignment-1/part_2/output.csv
-  default_pandas_datasource:
-    type: pandas
+  Local_FileSystem_Source2316:
+    type: pandas_filesystem
+    assets:
+      Origination_Data:
+        type: csv
+    base_directory: gx/data
+  Local_FileSystem_Source4605:
+    type: pandas_filesystem
+    assets:
+      Monthly_Data:
+        type: csv
+    base_directory: /Users/manu/Desktop/Assignment-1/part_2/gx/data
 notebooks:
 include_rendered_content:
   globally: false
