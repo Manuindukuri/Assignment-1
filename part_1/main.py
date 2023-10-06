@@ -28,13 +28,13 @@ st.title("PDF Analysis")
 # Add a radio button to select the PDF processing library
 pdf_library = st.radio("Select PDF processing library:", ["PyPDF2", "Nougat"])
 
-# Define the image path
-image_path = 'https://github.com/BigDataIA-Fall2023-Team-1/Assignment-1/blob/main/part_1/workflow_diagram.png'
+# # Define the image path
+# image_path = 'https://github.com/BigDataIA-Fall2023-Team-1/Assignment-1/blob/main/part_1/workflow_diagram.png'
 
-# Create a button to trigger image display
-if st.button('View Architecture'):
-    # Display the image when the button is clicked
-    st.image(image_path, caption='Your Architecture', use_column_width=True)
+# # Create a button to trigger image display
+# if st.button('View Architecture'):
+#     # Display the image when the button is clicked
+#     st.image(image_path, caption='Your Architecture', use_column_width=True)
 
 # If "Nougat" is selected, hide the text box
 if pdf_library == "Nougat":
