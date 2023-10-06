@@ -74,4 +74,4 @@ weasel==0.3.2
 zipp==3.17.0
 ydata-profiling==4.5.1
 visions==0.7.4
-numpy==1.23.5
+numpy==1.26.0
