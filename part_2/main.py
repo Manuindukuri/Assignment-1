@@ -4,6 +4,7 @@ from ydata_profiling import ProfileReport
 import time
 import tempfile
 import base64
+import os
 
 # Set Streamlit app title
 st.title('Pandas Profiling App')
@@ -72,8 +73,12 @@ if uploaded_file is not None:
             progress_text.empty()
 
             # Save the report as an HTML file
-            temp_dir = tempfile.mkdtemp()
-            report_path = f"{temp_dir}/origination_data_profile_report.html"
+
+            newpath = "temp"
+            if not os.path.exists(newpath):
+                os.makedirs(newpath)
+            # temp_dir = tempfile.mkdtemp()
+            report_path = f"{newpath}/origination_data_profile_report.html"
             profile.to_file(report_path)
 
             # Remove the loading message and display the report
