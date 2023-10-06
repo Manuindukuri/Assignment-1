@@ -370,7 +370,7 @@ if st.button("Generate Validation Report"):
             except Exception as e:
                 st.error(f"An error occurred: {e}")
         else:
-            st.error(f"Selected Data Type does not match the uploaded file type ({selected_data_type}).")
+            st.error(f"Selected Data Type does not match the uploaded file type).")
 
     else:
         st.warning("Please upload a file")
