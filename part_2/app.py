@@ -131,7 +131,7 @@ if st.button("Generate Validation Report"):
                 df = pd.read_csv(uploaded_file, header=None, names=columns)
 
                 #variables
-                path_to_repo_dir="/Users/manu/Desktop/Assignment-1/part_2"
+                path_to_repo_dir="part_2"
                 path_to_data_dir=f"gx/data"
                 
                 if not os.path.exists(path_to_data_dir):
@@ -277,7 +277,7 @@ if st.button("Generate Validation Report"):
                 df = pd.read_csv(uploaded_file, header=None, names=columns)
 
                 #variables
-                path_to_repo_dir="/Users/manu/Desktop/Assignment-1/part_2"
+                path_to_repo_dir="part_2"
                 path_to_data_dir=f"{path_to_repo_dir}/gx/data"
                 
                 if not os.path.exists(path_to_data_dir):
