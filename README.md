@@ -1,4 +1,4 @@
-# Big Data Systems and Int Analytics - Assignment 1
+# Big Data Systems and Intelligent Analytics
 ## Team Information and Contribution 
 
 Name | Email | Contribution 
