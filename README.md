@@ -1,11 +1,5 @@
 # Big Data Systems and Intelligent Analytics
-## Team Information and Contribution 
 
-Name | Email | Contribution 
---- | --- | --- |
-Manohar Indukuri | indukuri.k@northeastern.edu | 34%
-Prathamesh Kulkarni | kulkarni.prath@northeastern.edu | 33% 
-Sarvesh Malpani | 	malpani.sa@northeastern.edu | 33% 
 
 ## Project Flow 
 
